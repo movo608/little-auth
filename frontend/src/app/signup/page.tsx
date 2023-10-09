@@ -17,6 +17,7 @@ import { signupSchema } from "@/helpers/validators";
 import { useAuth } from "@/context/AuthContext";
 
 import { SignupRequestDataType, SignupResponseType } from "@/types/signup";
+import { AuthActionsEnum } from "@/types/auth";
 
 const Signup = () => {
   const router = useRouter();
@@ -50,7 +51,7 @@ const Signup = () => {
         const { accessToken } = res.data;
 
         setAuthCookie({ token: accessToken });
-        dispatch({ type: "LOGIN", token: accessToken });
+        dispatch({ type: AuthActionsEnum.LOGIN, token: accessToken });
 
         router.replace("/home");
       })

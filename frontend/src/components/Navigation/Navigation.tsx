@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import { authenticatedRoutes, guestRoutes, RouteType } from "@/utils/routes";
+import { AuthActionsEnum } from "@/types/auth";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ export const Navigation = () => {
 
   const handleLogout = () => {
     logout();
-    dispatch({ type: "LOGOUT", token: null });
+    dispatch({ type: AuthActionsEnum.LOGOUT, token: null });
 
     router.replace("/");
   };

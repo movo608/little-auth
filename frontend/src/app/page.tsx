@@ -15,6 +15,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/helpers/validators";
+import { AuthActionsEnum } from "@/types/auth";
 
 const Login = () => {
   const router = useRouter();
@@ -47,7 +48,7 @@ const Login = () => {
         const { accessToken } = res.data;
 
         setAuthCookie({ token: res.data.accessToken });
-        dispatch({ type: "LOGIN", token: accessToken });
+        dispatch({ type: AuthActionsEnum.LOGIN, token: accessToken });
 
         router.replace("/home");
       })
