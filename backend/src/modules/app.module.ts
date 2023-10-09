@@ -20,7 +20,7 @@ import { AuthModule } from './auth.module';
     }),
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URL, {
-      dbName: 'simple-nest',
+      dbName: process.env.MONGO_DB,
     }),
   ],
   controllers: [AppController],
