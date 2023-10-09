@@ -40,7 +40,7 @@ const Login = () => {
       .post("/auth/login", JSON.stringify(data))
       .then((res: AxiosResponse<LoginResponseType>) => {
         notification({
-          message: "Registration successful. Redirecting...",
+          message: "Login successful. Redirecting...",
           type: "success",
         });
 
